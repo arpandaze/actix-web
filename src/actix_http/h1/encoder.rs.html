@@ -883,13 +883,13 @@
             <span class="ident">dst</span>.<span class="ident">advance_mut</span>(<span class="ident">pos</span>);
         }
 
-        <span class="comment">// optimized date header, set_date writes \r\n</span>
         <span class="kw">if</span> <span class="op">!</span><span class="ident">has_date</span> {
+            <span class="comment">// optimized date header, write_date_header writes its own \r\n</span>
             <span class="ident">config</span>.<span class="ident">write_date_header</span>(<span class="ident">dst</span>, <span class="ident">camel_case</span>);
-        } <span class="kw">else</span> {
-            <span class="comment">// msg eof</span>
-            <span class="ident">dst</span>.<span class="ident">extend_from_slice</span>(<span class="string">b&quot;\r\n&quot;</span>);
         }
+
+        <span class="comment">// end-of-headers marker</span>
+        <span class="ident">dst</span>.<span class="ident">extend_from_slice</span>(<span class="string">b&quot;\r\n&quot;</span>);
 
         <span class="prelude-val">Ok</span>(())
     }
@@ -1338,5 +1338,5 @@
     }
 }
 </code></pre></div>
-</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="actix_http" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (2681f253b 2022-02-01)" ></div>
+</section><section id="search" class="content hidden"></section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="actix_http" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.60.0-nightly (0c292c966 2022-02-08)" ></div>
 </body></html>
